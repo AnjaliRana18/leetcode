@@ -1,0 +1,43 @@
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+         int l=0;
+         int r=nums.size()-1;
+         int f=0;
+         k=nums.size()-k;
+         while(l<=r)
+         {
+             int p = nums[r];
+             int j=l;
+             for(int i=l;i<r;i++)
+             {
+                 if(nums[i]<=p)
+                 {
+                     int t = nums[i];
+                     nums[i]=nums[j];
+                     nums[j]=t;
+                     j++;
+                 }
+             }
+            
+            int t = nums[r];
+            nums[r]=nums[j];
+            nums[j]=t;
+
+             if(k==j)
+             {
+                 f= nums[j];
+                 break;
+             }
+             else if(k<j)
+             {
+                 r=j-1;
+             }
+             else
+             {
+                 l=j+1;
+             }
+         }
+         return f;
+    }
+};

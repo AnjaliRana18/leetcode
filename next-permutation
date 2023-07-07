@@ -1,0 +1,35 @@
+class Solution {
+public:
+    void nextPermutation(vector<int>& nums) {
+        int n = nums.size();
+        int f=0;
+        int k=0,r=0;
+        for(int i=n-1;i>0;i--)
+        {
+            if(nums[i]>nums[i-1])
+            {
+                k=i;
+                break;
+            }
+        }
+        if(k==0)
+        {
+            sort(nums.begin(),nums.end());
+        }
+        else
+        {
+            int as = nums[k-1];
+            int max=k;
+            for(int i=k;i<n;i++)
+            {
+                if(nums[i]>as && nums[i]<nums[max])
+                {
+                    max=i;
+                }
+            }
+            nums[k-1]=nums[max];
+            nums[max]=as;
+            sort(nums.begin()+k,nums.end());
+        }
+    }
+};

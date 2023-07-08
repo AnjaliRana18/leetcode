@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> intersection(vector<vector<int>>& nums) {
+        map<int,int> b;
+        vector<int> a;
+        for(int i=0;i<nums.size();i++)
+        {
+            for(int j=0;j<nums[i].size();j++)
+            {
+               b[nums[i][j]]++;
+            }
+        }
+        map<int, int>::iterator it;
+        for(it=b.begin();it!=b.end();it++)
+        {
+            if(it->second == nums.size())
+            {
+                a.push_back(it->first);
+            }
+        }
+        sort(a.begin(),a.end());
+        return a;
+    }
+};

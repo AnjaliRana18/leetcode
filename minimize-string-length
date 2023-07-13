@@ -1,0 +1,11 @@
+class Solution {
+public:
+    int minimizedStringLength(string s) {
+        set<char> l;
+        for(int i=0;i<s.length();i++)
+        {
+            l.insert(s[i]);
+        }
+        return l.size();
+    }
+};

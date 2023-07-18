@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int getDecimalValue(ListNode* head) {
+        string s="";
+        while(head)
+        {
+            s=to_string(head->val)+s;
+            head=head->next;
+        }
+        int n=0;
+        for(int i=0;i<s.length();i++)
+        {
+            n+=(s[i]-'0')*pow(2,i);
+        }
+        return n;
+    }
+};

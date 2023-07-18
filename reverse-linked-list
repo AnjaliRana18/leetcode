@@ -1,0 +1,23 @@
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if(head==NULL)
+        return head;
+        else if(head->next==NULL)
+        return head;
+        else
+        {
+            ListNode* cur=head;
+            ListNode* pre=NULL;
+            ListNode* nnext=NULL;
+            while(cur)
+            {
+                nnext = cur->next;
+                cur->next = pre;
+                pre = cur;
+                cur = nnext;
+            }
+            return pre;
+        }
+    }
+};

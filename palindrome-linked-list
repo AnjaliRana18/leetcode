@@ -1,0 +1,16 @@
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        
+        string s="";
+        ListNode* t= head;
+        while(t!=NULL)
+        {
+            s+=(t->val + '0');
+            t=t->next;
+        }
+        string k = s;
+        reverse(k.begin(),k.end());
+        return k==s;
+    }
+};

@@ -1,0 +1,33 @@
+class Solution {
+public:
+
+    ListNode* swapNodes(ListNode* head, int k) {
+      if(!head || !head->next)
+      return head;
+      else
+      {
+          int n=0;
+          ListNode* t = head;
+          ListNode* r;
+          while(t)
+          {
+              if(n==k-1)
+              {
+                  r=t;
+              }
+              t=t->next;
+              n++;
+          }
+          n=n-k;
+          t=head;
+          while(n--)
+            {
+                t=t->next;
+            }
+            int s = r->val;
+            r->val=t->val;
+            t->val=s;
+            return head;
+      }
+    }
+};
